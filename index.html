@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Premium Audio | Gen UI Experience</title>
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay">
+        <div class="search-content">
+            <i class='bx bx-x' id="close-search"></i>
+            <input type="text" placeholder="Type to Search..." id="search-input">
+            <div class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <i class='bx bx-x' id="close-modal"></i>
+            <div class="modal-grid">
+                <div class="modal-image-col">
+                    <img src="" alt="Product Detail" id="modal-img">
+                </div>
+                <div class="modal-info-col">
+                    <h5 class="modal-brand">NIKE</h5>
+                    <h2 class="modal-title">Air Zoom</h2>
+                    <p class="modal-desc">Description goes here...</p>
+
+                    <div class="tech-specs">
+                        <h3>Technical Specifications</h3>
+                        <ul>
+                            <li><strong>Material:</strong> Mesh & Synthetic</li>
+                            <li><strong>Weight:</strong> 280g (Approx)</li>
+                            <li><strong>Sole:</strong> Rubber w/ Zoom Air</li>
+                            <li><strong>Style Code:</strong> DH342-100</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-price">$149</div>
+                    <button class="modal-add-btn">Add to Bag</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dedicated Checkout Overlay -->
+    <div class="checkout-overlay">
+        <i class='bx bx-x' id="close-checkout"></i>
+        <div class="checkout-container">
+            <div class="checkout-left">
+                <h2>Order Summary</h2>
+                <div class="checkout-items">
+                    <!-- Injected via JS -->
+                </div>
+                <div class="checkout-total">
+                    <span>Total</span>
+                    <span id="checkout-total-price">$0</span>
+                </div>
+            </div>
+            <div class="checkout-right">
+                <h2>Payment Details</h2>
+                <form id="checkout-form" class="checkout-form">
+                    <div class="form-group">
+                        <label>Cardholder Name</label>
+                        <input type="text" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" placeholder="0000 0000 0000 0000" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry</label>
+                            <input type="text" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVC</label>
+                            <input type="text" placeholder="123" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="pay-btn">Pay Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <!-- Background Layer (Gen UI) -->
+    <div class="bg-layer">
+        <div class="ambient-light light-1"></div>
+        <div class="ambient-light light-2"></div>
+        <div class="ambient-light light-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo">NIKE</div>
+        <ul class="nav-links">
+            <li><a href="#" class="nav-item active" data-page="home">Home</a></li>
+            <li><a href="#" class="nav-item" data-page="men">Men</a></li>
+            <li><a href="#" class="nav-item" data-page="women">Women</a></li>
+            <li><a href="#" class="nav-item" data-page="new">New Arrivals</a></li>
+        </ul>
+        <div class="nav-actions">
+            <i class='bx bx-search'></i>
+            <div class="cart-icon-wrapper" id="cart-btn">
+                <i class='bx bx-shopping-bag'></i>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="wishlist-icon-wrapper" id="wishlist-btn">
+                <i class='bx bx-heart'></i>
+                <span class="wishlist-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay"></div>
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Bag</h3>
+            <i class='bx bx-x' id="close-cart"></i>
+        </div>
+        <div class="cart-items">
+            <!-- Items injected via JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total</span>
+                <span class="total-price">$0</span>
+            </div>
+            <button class="btn-checkout">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Wishlist Sidebar -->
+    <div class="wishlist-overlay"></div>
+    <div class="wishlist-sidebar">
+        <div class="wishlist-header">
+            <h3>Favorites</h3>
+            <i class='bx bx-x' id="close-wishlist"></i>
+        </div>
+        <div class="wishlist-items">
+            <!-- Items injected via JS -->
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="card-wrapper">
+            <!-- Navigation Arrows (Hidden by default) -->
+            <div class="card-nav left hidden">
+                <i class='bx bx-chevron-left'></i>
+            </div>
+            <div class="card-nav right hidden">
+                <i class='bx bx-chevron-right'></i>
+            </div>
+
+            <div class="card">
+                <!-- Shoe Presentation Layer -->
+                <div class="sneaker-area">
+                    <div class="circle-bg"></div>
+                    <img src="images/1.png" alt="Nike Air Zoom - Red" id="shoe-img" draggable="false">
+                </div>
+
+                <!-- Product Display -->
+                <div class="circle"></div>
+                <!-- Wishlist Toggle on Card -->
+                <div class="card-wishlist-trigger">
+                    <i class='bx bx-heart'></i>
+                </div>
+                <!-- Nav Arrows for Collections -->
+                <!-- Information Layer -->
+                <div class="info-area">
+                    <div class="product-header">
+                        <h3 class="brand">Nike Air Zoom</h3>
+                        <h1 class="model">PEGASUS 40</h1>
+                        <h4 class="collection">Running Collection</h4>
+                    </div>
+                    <p class="description">Experience the future of speed. Ultra-responsive cushioning meets a
+                        breathable mesh upper for the ultimate ride.</p>
+
+                    <div class="options-grid">
+                        <div class="option-group">
+                            <span>Select Color</span>
+                            <div class="colors">
+                                <div class="color active" data-color="red" style="background: #ff3b3b;"></div>
+                                <div class="color" data-color="blue" style="background: #3b82ff;"></div>
+                                <div class="color" data-color="green" style="background: #3bff89;"></div>
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <span>Select Size</span>
+                            <div class="sizes">
+                                <button class="size active" data-size="38">38</button>
+                                <button class="size" data-size="40">40</button>
+                                <button class="size" data-size="42">42</button>
+                                <button class="size" data-size="44">44</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-area">
+                        <div class="price-tag">
+                            <span class="currency">₹</span>11,895
+                        </div>
+                        <button class="btn-purchase">
+                            <span>Add to Bag</span>
+                            <i class='bx bx-shopping-bag'></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Grid Container (Hidden by default) -->
+        <div class="category-grid hidden">
+            <div class="grid-header">
+                <button class="back-btn"><i class='bx bx-left-arrow-alt'></i> Back</button>
+                <h2 class="grid-title">Collection</h2>
+            </div>
+            <div class="grid-items">
+                <!-- Items injected via JS -->
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Nike Premium Audio. All rights reserved.</p>
+            <div class="socials">
+                <i class='bx bxl-instagram'></i>
+                <i class='bx bxl-twitter'></i>
+                <i class='bx bxl-facebook'></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="main.js"></script>
+</body>
+
+</html>
